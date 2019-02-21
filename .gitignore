@@ -36,3 +36,4 @@ build/
 .env
 tests
 package-lock.json
+src/pepe.json

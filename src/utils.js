@@ -13,7 +13,7 @@ const messageContainsText = (message, possibleTexts) => {
 
   const exits = texts.some( wordPrivate => messageText.includes(wordPrivate));
   // Pasar por watson por peso de palabra *
-  // Quisite decir **
+  // Quisiste decir **
   if(exits){
     return messageText.split(" ").some( word => texts.includes(word.toLowerCase()));
   } 
@@ -21,10 +21,16 @@ const messageContainsText = (message, possibleTexts) => {
   
 };
 
+const messageClean = (message) => {
+  const messageSplit = message.text.split(" ")
+  return {id:messageSplit[1], cohortName: messageSplit[2]};
+}
+
 
 module.exports = {
   isMessage,
   isMessageTo,
   isFromUser,
-  messageContainsText
+  messageContainsText,
+  messageClean
 }
